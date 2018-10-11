@@ -1,16 +1,15 @@
 # Korean TTS Model: what is the best Hangul processing strategy for Korean speech synthesis?
 
-Hangul is a unique script designed mostly for Korean. It is phonetic in principle like Latin letters, but you need to know much more pronunciation rules in order to pronounce it correctly than you do for German or Spanish. Hangul is syllable-based like Kana,
-the Japanese script, but Hangul is also different from Kana in that Hangul syllables can be decomposed
-into their constitutional consonants and vowels.
-Putting together, these are quite handy for readability in practice, but often they embarrass Korean computational linguists.
-Do I have to convert graphmes into phonemes first? Is it better to decompose Hangul syllables for TTS?
- Or do I have to take syllables without decomposition?
- If you know the scene behind the Hangul unicode, you will find things are even
- more complicated. There are two kinds of unicode blocks for contemporary Hangul consonants and vowels (called __jamo__ in Korean): Hangul Jamo (0x01100-0x011FF) and
- Hangul Compatibility Jamo (0x03130-0x0318F). In Hangul Compatibility Jamo the first consonant (onset) and the final consonant (code) are given the same unicode point,
- wherase in Hangul Jamo they are treated as independent letters. (Figuratively, if you follow the Hangul Jamo system in English, you have to distinguish the two l's in law and cool)
-On the other hand, those two regard consonant clusters such as ㄲ, ㄱㅅ as a single letter. Some claim that they should be understood as a sequence of single consonants. Are they right in the computational practice? These questions motivate this project.
+한글은 주로 한국어를 위해 고안된 독창적 인 스크립트입니다. 
+그것은 라틴 문자와 같은 원칙적으로 발음이지만, 독일어 또는 스페인어보다 정확하게 발음 규칙을 알아야 더 발음 규칙을 알 필요가 있습니다. 
+한글은 한자와 같은 음절이며, 한글은 가나와 다른 점은 한글 음절이 헌법 자음과 모음으로 분해 될 수 있다는 점입니다. 
+한데 모아서, 이것은 실제의 가독성을 위해 매우 편리하지만 종종 한국의 컴퓨터 언어학자를 난처하게합니다. 
+먼저 그래프를 음소로 변환해야합니까? 한글 음절을 TTS 용으로 분해하는 것이 더 낫습니까? 아니면 분해없이 음절을 가져 가야합니까? 
+한글 유니 코드 뒤에 숨어있는 장면을 안다면, 상황은 더욱 복잡해 질 것입니다.
+한글 자모 (0x01100-0x011FF)와 한글 호환성 자모 (0x03130-0x0318F)는 현대 한글 자음과 모음 (한국어로 jamo이라고 함)을위한 두 가지 종류의 유니 코드 블록이 있습니다. 
+한글과의 호환성 Jamo는 첫 자음 (시작)과 최종 자음 (코드)에 동일한 유니 코드 포인트가 주어지며 한글 자모에서는 독립적 인 문자로 취급됩니다. 
+(비 유적으로, 영어로 한글 자모 체계를 따라한다면 법에 따라 두 가지를 구별해야합니다.) 한편, 두 사람은 ㄲ, ㄱㅅ 같은 자음 클러스터를 하나의 편지로 간주합니다. 
+어떤 이들은 하나의 자음 시퀀스로 이해해야한다고 주장합니다. 컴퓨터 실습에있어 맞습니까? 이 질문들은이 프로젝트에 동기를 부여합니다.
 
 I run four different experiements depending on the Hangul processing strategies below.
 
